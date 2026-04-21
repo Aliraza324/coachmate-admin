@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { Download, Eye, Pencil, Trash2 } from 'lucide-react'
+import { Link, useNavigate } from 'react-router-dom'
+import { Download, Eye, Pencil, Plus, Trash2 } from 'lucide-react'
 import { Card } from '@/components/ui/Card'
 import { Pagination } from '@/components/ui/Pagination'
 import { workouts, categoryMeta, difficultyStyles } from '@/data/workoutsData'
@@ -9,6 +9,7 @@ import { Th, Td } from './SharedTable'
 const PAGE_SIZE = 5
 
 export function WorkoutLibrary() {
+  const navigate = useNavigate()
   const [page, setPage] = useState(1)
   const totalPages = Math.max(1, Math.ceil(workouts.length / PAGE_SIZE))
   const start = (page - 1) * PAGE_SIZE
@@ -22,10 +23,20 @@ export function WorkoutLibrary() {
         <div className="flex flex-col gap-4 p-4 sm:flex-row sm:items-start sm:justify-between sm:p-5">
           <div>
             <h2 className="text-xl font-semibold text-ink sm:text-2xl">Workout Library</h2>
-            <p className="mt-1 text-xs text-ink-muted sm:text-sm">
+            <p className="mt-1 text-xs text-ink-muted sm:text-sm mt-5">
               Manage coach profiles, verify certifications, assign athletes, and monitor coach performance.
             </p>
           </div>
+
+          <button
+            type="button"
+            onClick={() => navigate('/workouts/create')}
+            className="cursor-pointer inline-flex items-center gap-2 self-start rounded-lg border border-border bg-white px-4 py-2 text-sm font-medium text-ink hover:bg-slate-50"
+          >
+            <Plus size={16} />
+            Add Workout
+          </button>
+
           <button
             type="button"
             className="inline-flex items-center gap-2 self-start rounded-lg border border-border bg-white px-4 py-2 text-sm font-medium text-ink hover:bg-slate-50"

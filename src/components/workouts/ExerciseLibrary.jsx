@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Plus, Eye, Pencil, Trash2 } from 'lucide-react'
 import { Card } from '@/components/ui/Card'
 import { Pagination } from '@/components/ui/Pagination'
@@ -22,7 +22,7 @@ export function ExerciseLibrary() {
   const pageItems = exercises.slice(start, start + PAGE_SIZE)
   const rangeStart = start + 1
   const rangeEnd = Math.min(page * PAGE_SIZE, exercises.length)
-
+  const navigate = useNavigate()
   return (
     <div className="space-y-4">
       <Card className="p-0 sm:p-0">
@@ -35,7 +35,8 @@ export function ExerciseLibrary() {
           </div>
           <button
             type="button"
-            className="inline-flex items-center gap-2 self-start rounded-lg border border-border bg-white px-4 py-2 text-sm font-medium text-ink hover:bg-slate-50"
+            onClick={() => navigate('/workouts/exercises/create')}
+            className="cursor-pointer inline-flex items-center gap-2 self-start rounded-lg border border-border bg-white px-4 py-2 text-sm font-medium text-ink hover:bg-slate-50"
           >
             <Plus size={16} />
             Add Exercise

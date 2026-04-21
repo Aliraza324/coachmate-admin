@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Line } from 'react-chartjs-2'
 import {
   Ban,
@@ -13,15 +12,7 @@ import {
 import { Card } from '@/components/ui/Card'
 import { athletes, workoutCompletionRate, recentWorkouts } from '@/data/athletesData'
 
-const TABS = [
-  'Overview',
-  'Workouts',
-  'Nutrition',
-  'Progress',
-  'Injury & Pre-Hab',
-  'Messages',
-  'Subscription',
-]
+
 
 const workoutStatusStyles = {
   Completed: 'bg-emerald-50 text-emerald-600',
@@ -31,7 +22,6 @@ const workoutStatusStyles = {
 
 export function AthleteProfile({ athleteId, onBack }) {
   const athlete = athletes.find((a) => a.id === athleteId) ?? athletes[0]
-  const [activeTab, setActiveTab] = useState('Overview')
 
   return (
     <div className="space-y-4 sm:space-y-6">
@@ -96,33 +86,10 @@ export function AthleteProfile({ athleteId, onBack }) {
           </div>
         </div>
 
-        <div className="mt-6 flex gap-1 overflow-x-auto border-b border-border">
-          {TABS.map((tab) => (
-            <button
-              key={tab}
-              type="button"
-              onClick={() => setActiveTab(tab)}
-              className={`whitespace-nowrap border-b-2 px-4 py-3 text-sm font-medium transition ${
-                activeTab === tab
-                  ? 'border-cyan-brand text-cyan-brand'
-                  : 'border-transparent text-ink-muted hover:text-ink'
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
       </Card>
 
-      {activeTab === 'Overview' && <OverviewTab athlete={athlete} />}
-      {activeTab === 'Workouts' && <WorkoutsTab />}
-      {activeTab !== 'Overview' && activeTab !== 'Workouts' && (
-        <Card>
-          <p className="py-12 text-center text-sm text-ink-muted">
-            {activeTab} content coming soon.
-          </p>
-        </Card>
-      )}
+      <OverviewTab athlete={athlete} />
+      <WorkoutsTab />
     </div>
   )
 }
@@ -146,14 +113,25 @@ function OverviewTab({ athlete }) {
               <span
                 key={goal}
                 className={`rounded-full px-3 py-1 text-xs font-medium ${
-                  i % 2 === 0
-                    ? 'bg-sky-50 text-sky-600'
-                    : 'bg-emerald-50 text-emerald-600'
+                  i % 2 === 0 ? 'bg-sky-50 text-sky-600' : 'bg-emerald-50 text-emerald-600'
                 }`}
               >
                 {goal}
               </span>
             ))}
+          </div>
+          <div className="mt-4 flex items-center justify-between text-sm">
+            <span className="text-ink-muted">Target:</span>
+            <span className="font-semibold text-ink">{athlete.targetWeight ?? '65 kg'}</span>
+          </div>
+          <div className="mt-2">
+            <div className="h-2 w-full overflow-hidden rounded-full bg-slate-100">
+              <div
+                className="h-full rounded-full bg-emerald-500 transition-all"
+                style={{ width: `${athlete.progress}%` }}
+              />
+            </div>
+            <div className="mt-1 text-right text-xs text-ink-muted">{athlete.progress}%</div>
           </div>
         </InfoCard>
 
@@ -207,7 +185,7 @@ function WorkoutsTab() {
           <h3 className="text-base font-semibold text-ink">Recent Workouts</h3>
           <button
             type="button"
-            className="inline-flex items-center gap-2 self-start rounded-lg bg-cyan-brand px-4 py-2 text-sm font-medium text-white hover:bg-cyan-600"
+            className="bg-[#2563EB] inline-flex items-center gap-2 self-start rounded-lg px-4 py-2 text-sm font-medium text-white cursor-pointer"
           >
             <Plus size={16} />
             Add Workout

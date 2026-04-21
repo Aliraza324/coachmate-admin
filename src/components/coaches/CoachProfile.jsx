@@ -88,6 +88,41 @@ export function CoachProfile({ coach, onBack }) {
             <dd className="mt-1 text-sm text-ink">{coach.bio}</dd>
           </div>
         </div>
+
+        <div className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-3">
+          {/* Performance Panel */}
+          <div className="rounded-2xl border border-border p-5">
+            <h3 className="text-base font-semibold text-ink test-[#1F2937]">Performance</h3>
+            <div className="mt-4 grid grid-cols-2 gap-y-4 text-sm">
+              <div className="text-ink-muted">Client Retention:</div>
+              <div className="font-semibold text-ink">85%</div>
+              <div className="text-ink-muted">Avg Progress:</div>
+              <div className="font-semibold text-ink">Good</div>
+              <div className="text-ink-muted">Active Clients:</div>
+              <div className="font-semibold text-ink">10</div>
+              <div className="text-ink-muted">Inactive Clients</div>
+              <div className="font-semibold text-ink">2</div>
+            </div>
+          </div>
+
+          {/* Certifications Panel */}
+          <div className="rounded-2xl border border-border p-5">
+            <h3 className="text-base font-semibold text-ink test-[#1F2937]">
+              Certifications: <span className="text-[#19842A]">Verified</span>
+            </h3>
+            <div className="mt-4 space-y-4">
+              <button type="button" className="block text-sm text-ink-muted hover:text-ink">
+                [View Documents]
+              </button>
+              <button type="button" className="block text-sm text-ink-muted hover:text-ink">
+                [View Documents]
+              </button>
+              <button type="button" className="block text-sm text-ink-muted hover:text-ink">
+                [View Documents]
+              </button>
+            </div>
+          </div>
+        </div>
       </Card>
     </div>
   )

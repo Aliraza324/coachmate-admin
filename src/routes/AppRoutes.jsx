@@ -34,6 +34,8 @@ import { Analytics } from '@/pages/Analytics'
 import { Templates } from '@/pages/Templates'
 import { SettingsPage } from '@/pages/SettingsPage'
 import { NotFound } from '@/pages/NotFound'
+import CreateWorkout from '@/pages/CreateWorkout'
+import CreateExercise from '@/pages/CreateExercise '
 
 export function AppRoutes() {
   return (
@@ -53,6 +55,8 @@ export function AppRoutes() {
           <Route path="library" element={<WorkoutLibrary />} />
           <Route path="exercises" element={<ExerciseLibrary />} />
           <Route path="templates" element={<WorkoutTemplates />} />
+          <Route path="create" element={<CreateWorkout />} />
+          <Route path="exercises/create" element={<CreateExercise />} />
         </Route>
         <Route path="workouts/library/:slug" element={<WorkoutDetail />} />
         <Route path="workouts/exercises/:slug" element={<ExerciseDetail />} />

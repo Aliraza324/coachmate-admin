@@ -15,10 +15,9 @@ export function Workouts() {
             key={tab.to}
             to={tab.to}
             className={({ isActive }) =>
-              `whitespace-nowrap border-b-2 px-4 py-3 text-sm font-medium transition ${
-                isActive
-                  ? 'border-cyan-brand text-cyan-brand'
-                  : 'border-transparent text-ink-muted hover:text-ink'
+              `whitespace-nowrap border-b-2 px-4 py-3 text-sm font-medium transition ${isActive
+                ? 'border-cyan-brand text-cyan-brand'
+                : 'border-transparent text-ink-muted hover:text-ink'
               }`
             }
           >

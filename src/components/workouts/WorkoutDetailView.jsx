@@ -24,13 +24,6 @@ export function WorkoutDetailView({ workout, onBack }) {
           <div className="flex flex-wrap gap-2 sm:gap-3">
             <button
               type="button"
-              className="inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-600"
-            >
-              <UserPlus size={16} />
-              Assign To
-            </button>
-            <button
-              type="button"
               className="inline-flex items-center gap-2 rounded-lg border border-border bg-white px-4 py-2 text-sm font-medium text-ink hover:bg-slate-50"
             >
               <Pencil size={16} />
@@ -81,15 +74,38 @@ export function WorkoutDetailView({ workout, onBack }) {
           </div>
         </div>
 
+        {/* Stats Panel */}
+        <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div className="rounded-2xl border border-border p-5">
+            <div className="grid grid-cols-2 gap-y-4 text-sm">
+              <div className="text-ink-muted">Total Uses:</div>
+              <div className="text-right font-semibold text-ink">120</div>
+              <div className="text-ink-muted">Completion Rate:</div>
+              <div className="text-right font-semibold text-ink">78%</div>
+              <div className="text-ink-muted">Avg Duration:</div>
+              <div className="text-right font-semibold text-ink">42 min</div>
+              <div className="text-ink-muted">Difficulty Feedback</div>
+              <div className="text-right font-semibold text-ink">Medium</div>
+            </div>
+          </div>
+          <div className="rounded-2xl border border-border p-5">
+            <div className="grid grid-cols-2 gap-y-4 text-sm">
+              <div className="text-ink-muted">Assigned to:</div>
+              <div className="text-right font-semibold text-ink">120 users</div>
+              <div className="text-ink-muted">Completed by:</div>
+              <div className="text-right font-semibold text-ink">110 users</div>
+              <div className="text-ink-muted">Drop-off rate:</div>
+              <div className="text-right font-semibold text-ink">78%</div>
+              <div className="text-ink-muted">Average completion time:</div>
+              <div className="text-right font-semibold text-ink">42 min</div>
+            </div>
+          </div>
+        </div>
+
         <div className="mt-6 rounded-2xl border border-border p-5">
           <div className="flex items-center justify-between">
             <h3 className="text-base font-semibold text-ink">Exercises</h3>
-            <button
-              type="button"
-              className="inline-flex items-center gap-2 rounded-lg border border-border bg-white px-3 py-1.5 text-xs font-medium text-ink hover:bg-slate-50"
-            >
-              + Add Exercise
-            </button>
+           
           </div>
 
           <div className="mt-4 overflow-x-auto rounded-xl border border-border">
