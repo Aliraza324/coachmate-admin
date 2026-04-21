@@ -17,9 +17,9 @@ export const navItems = [
   { label: 'Coach Management', path: '/coaches', icon: UserCog },
   { label: 'Workouts', path: '/workouts', icon: Dumbbell },
   { label: 'Nutrition', path: '/nutrition', icon: Apple },
-  { label: 'Messaging', path: '/messaging', icon: MessageSquare },
+  // { label: 'Messaging', path: '/messaging', icon: MessageSquare },
   { label: 'Subscriptions', path: '/subscriptions', icon: CreditCard },
   { label: 'Analytics', path: '/analytics', icon: BarChart3 },
-  { label: 'Template Management', path: '/templates', icon: LayoutTemplate },
+  // { label: 'Template Management', path: '/templates', icon: LayoutTemplate },
   { label: 'Settings', path: '/settings', icon: Settings },
 ]
