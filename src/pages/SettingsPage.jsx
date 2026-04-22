@@ -1,10 +1,12 @@
-import { PlaceholderPage } from '@/pages/PlaceholderPage'
+import React, { useState } from 'react'
+import SystemSetting from '@/components/setting/SystemSetting'
+import PrivacySetting from '@/components/setting/PrivacySetting'
 
 export function SettingsPage() {
   return (
-    <PlaceholderPage
-      title="Settings"
-      description="Platform configuration and admin preferences."
-    />
+    <>
+    <SystemSetting/>
+    <PrivacySetting/>
+    </>
   )
 }
