@@ -8,7 +8,7 @@ import { SystemAlerts } from '@/components/dashboard/SystemAlerts'
 
 export function Dashboard() {
   return (
-    <div className="space-y-4 sm:space-y-6">
+    <div className="space-y-4 sm:space-y-6 p-4">
       <PageHeader />
       <StatCards />
 
