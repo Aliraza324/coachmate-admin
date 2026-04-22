@@ -2,8 +2,10 @@ import { Plus, Copy, Pencil, Trash2 } from 'lucide-react'
 import { Card } from '@/components/ui/Card'
 import { workoutTemplates, categoryMeta, difficultyStyles } from '@/data/workoutsData'
 import { Th, Td } from './SharedTable'
+import { useNavigate } from 'react-router-dom'
 
 export function WorkoutTemplates() {
+  const navigate = useNavigate()
   return (
     <Card className="p-0 sm:p-0">
       <div className="flex flex-col gap-4 p-4 sm:flex-row sm:items-start sm:justify-between sm:p-5">
@@ -14,8 +16,9 @@ export function WorkoutTemplates() {
           </p>
         </div>
         <button
+          onClick={() => navigate('/workouts/templates/create')}
           type="button"
-          className="inline-flex items-center gap-2 self-start rounded-lg border border-border bg-white px-4 py-2 text-sm font-medium text-ink hover:bg-slate-50"
+          className="cursor-pointer inline-flex items-center gap-2 self-start rounded-lg border border-border bg-white px-4 py-2 text-sm font-medium text-ink hover:bg-slate-50"
         >
           <Plus size={16} />
           New Template

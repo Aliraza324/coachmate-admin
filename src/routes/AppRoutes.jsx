@@ -36,6 +36,7 @@ import { SettingsPage } from '@/pages/SettingsPage'
 import { NotFound } from '@/pages/NotFound'
 import CreateWorkout from '@/pages/CreateWorkout'
 import CreateExercise from '@/pages/CreateExercise '
+import CreateWorkoutTemplates from '@/pages/CreateWorkoutTemplates'
 
 export function AppRoutes() {
   return (
@@ -57,6 +58,7 @@ export function AppRoutes() {
           <Route path="templates" element={<WorkoutTemplates />} />
           <Route path="create" element={<CreateWorkout />} />
           <Route path="exercises/create" element={<CreateExercise />} />
+          <Route path="templates/create" element={<CreateWorkoutTemplates />} />
         </Route>
         <Route path="workouts/library/:slug" element={<WorkoutDetail />} />
         <Route path="workouts/exercises/:slug" element={<ExerciseDetail />} />
