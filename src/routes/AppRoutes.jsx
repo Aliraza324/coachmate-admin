@@ -1,5 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { DashboardLayout } from '@/components/layout/DashboardLayout'
+import { Login } from '@/pages/Login'
+import { ProtectedRoute } from '@/routes/ProtectedRoute'
 import { Dashboard } from '@/pages/Dashboard'
 import { Athletes } from '@/pages/Athletes'
 import { AthleteDetail } from '@/pages/AthleteDetail'
@@ -41,7 +43,14 @@ import CreateWorkoutTemplates from '@/pages/CreateWorkoutTemplates'
 export function AppRoutes() {
   return (
     <Routes>
-      <Route element={<DashboardLayout />}>
+      <Route path="/login" element={<Login />} />
+      <Route
+        element={
+          <ProtectedRoute>
+            <DashboardLayout />
+          </ProtectedRoute>
+        }
+      >
         <Route index element={<Dashboard />} />
         <Route path="athletes">
           <Route index element={<Athletes />} />
